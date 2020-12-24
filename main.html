@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script type="text/javascript" src="js.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>lab 4</title>
+</head>
+
+<body>
+    <header>
+        <h1>Симуляція покупки продуктів</h1>
+    </header>
+    <main>
+
+        <div class='itm-col-l' ng-controller='toBuyController as Buy'>
+            <h2>Продукти які ви можете придбати:</h2>
+            <div class="sp" ng-if="Buy.BuyItems.length == 0">
+                Порожній список
+            </div>
+            <div class='itm-lst'>
+                <div class="itm-elem">
+                    <div ng-repeat="item in Buy.BuyItems">
+                        {{item.name}}
+                    </div>
+                </div>
+                <div class="itm-elem">
+                    <div ng-repeat="item in Buy.BuyItems">
+                        {{item.amount}}
+                    </div>
+                </div>
+                <div class="itm-elem">
+                    <div ng-repeat="item in Buy.BuyItems">
+                        <button class="gradient-button" ng-click="Buy.addToBought($index)">Додати у кошик</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='itm-col-r' ng-controller='boughtController as boughtCntr'>
+            <h2>Кошик з обраними продуктами:</h2>
+            <div class="sp" ng-if="boughtCntr.boughtItems.length == 0">
+                Ваш кошик порожній, виберіть продукт
+            </div>
+            <div class='itm-lst'>
+                <div class="itm-elem">
+                    <div ng-repeat="item in boughtCntr.boughtItems">
+                        {{item.name}}
+                    </div>
+                </div>
+                <div class="itm-elem">
+                    <div ng-repeat="item in boughtCntr.boughtItems">
+                        {{item.amount}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+
+</html>
