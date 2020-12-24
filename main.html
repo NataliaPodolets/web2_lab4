@@ -33,14 +33,14 @@
                 </div>
                 <div class="itm-elem">
                     <div ng-repeat="item in Buy.BuyItems">
-                        <button class="gradient-button" ng-click="Buy.addToBought($index)">Додати у кошик</button>
+                        <button class="gradient-button" ng-click="Buy.addToBought($index)">Купити</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class='itm-col-r' ng-controller='boughtController as boughtCntr'>
-            <h2>Кошик з обраними продуктами:</h2>
+            <h2>Куплені продукти:</h2>
             <div class="sp" ng-if="boughtCntr.boughtItems.length == 0">
                 Ваш кошик порожній, виберіть продукт
             </div>
